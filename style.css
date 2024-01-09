@@ -2,12 +2,14 @@
   position: fixed;
   bottom: 10px;
   right: 10px;
+  z-index:3;
 }
 
 #questionButton {
   width: 40px;
   height: 40px;
   font-size: 24px;
+  z-index:3
 }
 
 #questionContent {
@@ -17,7 +19,13 @@
   border: 1px solid black;
   border-radius: 5px;
 }
+#buttonstart {
+	z-index:3
+}
 
 #questionBlock.open #questionContent {
   display: block;
+}
+canvas {
+	z-index:1
 }

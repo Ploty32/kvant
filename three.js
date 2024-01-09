@@ -2,8 +2,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-
-
 const questionBlock = document.getElementById('questionBlock');
 const questionButton = document.getElementById('questionButton');
 
@@ -17,13 +15,12 @@ const canvas = document.querySelector('#webgl');
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;
-
+renderer.domElement.style.filter = `blur(5px)`;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfe3dd);
 
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight,1,1000	);
 camera.position.set(0, 25,  0);
-var group = new THREE.Group();
 
 
 const loader = new GLTFLoader();
@@ -133,21 +130,21 @@ const boundary = {
   minZ: -42, // Minimum z-coordinate
   maxZ: -8, // Maximum z-coordinate
 };
-	
+let movable = false;
 function animate() {
   requestAnimationFrame(animate);
 
   // Move the camera based on the keyboard input
-  if (moveDirection.forward && camera.position.z - moveDistance >= boundary.minZ) {
+  if (moveDirection.forward && camera.position.z - moveDistance >= boundary.minZ && movable) {
     camera.position.z -= moveDistance;
   }
-  if (moveDirection.backward && camera.position.z + moveDistance <= boundary.maxZ) {
+  if (moveDirection.backward && camera.position.z + moveDistance <= boundary.maxZ && movable) {
     camera.position.z += moveDistance;
   }
-  if (moveDirection.left && camera.position.x - moveDistance >= boundary.minX) {
+  if (moveDirection.left && camera.position.x - moveDistance >= boundary.minX && movable) {
     camera.position.x -= moveDistance;
   }
-  if (moveDirection.right && camera.position.x + moveDistance <= boundary.maxX) {
+  if (moveDirection.right && camera.position.x + moveDistance <= boundary.maxX && movable) {
     camera.position.x += moveDistance;
   }
 
@@ -155,4 +152,13 @@ function animate() {
 
   renderer.render(scene, camera);
 }
+var button = document.getElementById("buttonstart");
+var kvantorium = document.getElementById("kvantorium");
+button.addEventListener("click", function() {
+  button.style.display = "none";
+  kvantorium.style.display = "none";
+  renderer.domElement.style.filter = `blur(0px)`;
+  movable=true;
+});
+
 animate();

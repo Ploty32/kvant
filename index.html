@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <title>Vite App</title>
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> <!-- Этот элемент содержит метаданные и ссылки на внешние ресурсы, такие как стили CSS и скрипты JavaScript.-->
+    <meta charset="UTF-8" /> 
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- элемент указывает путь к иконке в формате SVG и находится по адресу "/vite.svg".-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- элемент определяет настройки просмотра 
+	страницы на мобильных устройствах. В данном случае, ширина страницы будет соответствовать ширине устройства, а начальный масштаб будет 1.0.-->
+	<link rel="stylesheet" type="text/css" href="style.css"> <!-- элемент подключает внешний файл стилей CSS с именем "style.css".-->
+    <title>KvantVite App</title> 
   </head>
-  <body>
-<div id="questionBlock">
-  <button id="questionButton">&#63;</button>
-  <div id="questionContent">
+  <body> 
+  <div id='kvantorium' style="position:fixed; width:300px;height:150px; left:40%; z-index:3; top:10%;
+  background-image:url('logo.png'); background-size: cover; background-position:center;"></div>
+  <div  style="position:fixed; left:45%; z-index:3; top:50%;">
+  
+  <button id="buttonstart" style="background-color: green; height:80px; width:140px; color:white;font-size:30px;">START</button>
+</div><!-- Этот элемент содержит содержимое страницы, которое будет отображаться в браузере.-->
+<div id="questionBlock"> <!-- Этот элемент представляет блок с идентификатором "questionBlock". Внутри него находятся кнопка 
+с идентификатором "questionButton" и блок с идентификатором "questionContent".-->
+  <button id="questionButton">&#63;</button> 
+  <div id="questionContent"> 
     Это блок
   </div>
 </div>
-    <canvas id="webgl"></canvas>
-    <script type="module" src="/three.js"></script>
+    <canvas id="webgl"></canvas> <!-- элемент представляет холст (canvas) с идентификатором "webgl". 
+	Он может использоваться для отрисовки графики с помощью JavaScript.-->
+    <script type="module" src="/three.js"></script> <!-- Этот элемент подключает внешний скрипт JavaScript с именем "three.js" 
+	с помощью атрибута src. Тип модуля (type="module") указывает, что скрипт использует модульную систему JavaScript. -->
+	
   </body>
 </html>
